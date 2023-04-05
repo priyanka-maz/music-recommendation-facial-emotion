@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>WebRTC Video Stream Example</title>
+</head>
+<body>
+	<video id="video" width="640" height="480" autoplay></video>
+	<script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
+	<script>
+		navigator.mediaDevices.getUserMedia({ video: true })
+			.then(stream => {
+				let video = document.getElementById('video');
+				video.srcObject = stream;
+			})
+			.catch(error => {
+				console.log('Error: ', error);
+			});
+	</script>
+</body>
+</html>

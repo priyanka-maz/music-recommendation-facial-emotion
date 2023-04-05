@@ -1,4 +1,5 @@
 import cv2
+import os
 from deepface import DeepFace
 
 # Load the pre-trained model
@@ -11,8 +12,11 @@ while True:
     # Capture a frame from the webcam
     ret, frame = cap.read()
 
+    dir_path = os.path.dirname(__file__)
+    cascade_file_path = os.path.join(dir_path, 'haarcascade_frontalface_default.xml')
+
     # Detect faces in the frame
-    face_cascade = cv2.CascadeClassifier('d:/Teachable/haarcascade_frontalface_default.xml')
+    face_cascade = cv2.CascadeClassifier(cascade_file_path)
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
     faces = face_cascade.detectMultiScale(gray, 1.3, 5)
 

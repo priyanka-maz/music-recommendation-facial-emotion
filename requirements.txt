@@ -1,0 +1,6 @@
+python-dotenv
+requests
+opencv-python
+deepface
+fer
+moviepy
