@@ -1,0 +1,7 @@
+Neutral	: #F2F2F2
+Sad		: #bbb8b8
+Angry		: #ffa795
+Fear		: #c0e5f8
+Happy		: #ffe99a
+Disgust	: #ffc7b9
+Surprise	: #ffcdff

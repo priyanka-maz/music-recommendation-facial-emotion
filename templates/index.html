@@ -1,0 +1,143 @@
+
+<html lang="en">
+<head>
+    <link rel="icon" href="static/fav.png">
+
+    <title>Emotion Rec</title>
+
+    <style>
+        @import url('https://fonts.cdnfonts.com/css/google-sans');
+        </style>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
+    <script src="{{url_for('static', filename='opencv.js')}}" type="text/javascript"></script>
+    <script src="{{url_for('static', filename='utils.js')}}" type="text/javascript"></script>
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.js"
+			integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+			crossorigin="anonymous">
+	</script>
+
+    <script>
+         $(window).scroll(function() {     
+            var scroll = $(window).scrollTop();
+            if (scroll > 30) {
+                $("#header").addClass("active");
+            }
+            else {
+                $("#header").removeClass("active");
+            }
+        });
+    </script>
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="static/style.css">
+	
+	<script src="https://kit.fontawesome.com/13deb536c6.js" crossorigin="anonymous"></script>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    
+</head>
+    <body>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+        <div id="container">
+            
+            <div class="font">
+                
+                <nav class="navbar bg-body-tertiary" id="header">
+                    <div class="container-fluid">
+                    <a class="navbar-brand" href="#">
+                        <img src="{{url_for('static', filename='moodmusic.png')}}" alt="Logo" width="50" height="51" class="d-inline-block align-text-top">
+                    
+                    </a>
+                    <ul class="nav justify-content-end">
+                        <li class="nav-item">
+                          <a class="nav-link" aria-current="page" href="#">Github</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" onclick="About()">About us</a>
+                          </li>
+                    </ul>
+                    </div>
+                </nav>
+                <video autoplay="true" id="videoElement" style="display:none;"></video>
+
+                <div class="header-spacing"></div>
+            
+                <br>
+                <!--From camera directly-->
+                <div class="row" style="width:100%;text-align:center;margin:0 auto;">
+                    <div class="col-md">
+                        <div class="card mood-part">
+                            <!--In canvas-->
+                            <canvas id="canvasOutput" style="transform:scaleX(-1);"></canvas>
+
+                            <div class="row">
+                                <div class="col justify-content-center d-flex">
+                                    <div class="emotion">
+                                        <p id="mood"></p>
+                                    </div>
+                                </div>
+                                <div class="col justify-content-center d-flex">
+                                    <button id="Record" type="button" class="rec" onclick="RecordButton()">
+                                        <i class="fa-regular fa-circle-dot fa-fade"></i>
+                                        Snap
+                                    </button>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md">
+                        <div class="card music">
+                            <h2>Your music</h2>
+                            <div class="music-container">
+                                <iframe style="border-radius:15px" src="https://open.spotify.com/embed/track/5RBOcBpJXaNnHCGViJmYhh?utm_source=generator" width="100%" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                                <iframe style="border-radius:15px" src="https://open.spotify.com/embed/track/3CLSHJv5aUROAN2vfOyCOh?utm_source=generator" width="100%" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>                   
+                                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/3CLSHJv5aUROAN2vfOyCOh?utm_source=generator" width="100%" height="80" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="espace"></div>
+                <div id="about-container">
+                    <h1>About</h1>
+                    This is the about us section 
+                </div>
+                <div class="espace"></div>
+
+            </div>
+        </div>
+
+    </body>
+
+
+    <script src="{{url_for('static', filename='connection.js')}}" type="text/javascript"></script>
+
+    <script>
+        var root = document.querySelector(':root');
+
+        function dark(code){
+                root.style.setProperty('--gradient-color1', code);
+
+        }
+
+        function About(){
+            var about = document.getElementById('about');
+
+            about.scrollIntoView();
+        }
+
+
+    </script>
+
+
+    
+
+</html>
