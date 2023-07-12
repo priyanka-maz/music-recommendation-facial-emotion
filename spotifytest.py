@@ -65,7 +65,7 @@ def get_recomendations(limit = 20, market = 'IN', seed_artists = None,
   min_speechiness = None, min_tempo = None,
    min_valence = None,
   target_acousticness = None, target_danceability = None,
-  target_energy = None,
+  target_energy = None, target_loudness = None,
   target_instrumentalness = None, target_key = None,
   target_liveness = None, target_mode = None,
   target_popularity = None, target_speechiness = None,
@@ -79,6 +79,7 @@ def get_recomendations(limit = 20, market = 'IN', seed_artists = None,
       
     query = f'?limit={limit}&market=IN'\
     f'{f"&target_valence={target_valence}" if target_valence else ""}'\
+    f'{f"&target_loudness={target_loudness}" if target_loudness else ""}'\
     f'{f"&target_instrumentalness={target_instrumentalness}" if target_instrumentalness else ""}'\
     f'{f"&target_speechiness={target_speechiness}" if target_speechiness else ""}'\
     f'{f"&target_acousticness={target_acousticness}" if target_acousticness else ""}'\
@@ -118,9 +119,12 @@ def get_recomendations(limit = 20, market = 'IN', seed_artists = None,
 
 
 #search_track('sad music', 5, 1)
-get_recomendations(seed_genres= None , seed_tracks='6VRhkROS2SZHGlp0pxndbJ', limit=20)
+#get_recomendations(seed_genres= None , seed_tracks='6VRhkROS2SZHGlp0pxndbJ', limit=20)
 
-
-#get_recomendations(seed_genres="indian", limit=7, target_popularity=100, target_instrumentalness=0.126, target_liveness=0.25, target_valence=0.57, target_tempo=125)
+#happy_tracks
+print("\n\n Happy tracks")
+get_recomendations(seed_genres="indian", limit=10, target_popularity=100, target_danceability=0.62, target_acousticness=0.12, target_energy=0.75 ,target_valence=0.57, target_loudness=-7.27 , target_tempo=124.2)
     
-    
+#sad_tracks
+print("\n\n Sad tracks")
+get_recomendations(seed_genres="indian", limit=10, target_popularity=100, target_danceability=0.49, target_acousticness=0.57, target_energy=0.38 ,target_valence=0.19, target_loudness=-10.56, target_tempo=115.5)
