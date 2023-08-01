@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 from flask_socketio import SocketIO, emit
 from flask_cors import CORS
 import io
@@ -9,7 +9,10 @@ import numpy as np
 import imutils
 from fer import FER
 import os
+import logging
+from spotifyaccess import get_recomendations
 
+logging.getLogger('engineio').setLevel(logging.WARNING)
 
 #FER
 emotion_detector = FER()
@@ -41,7 +44,8 @@ def image(data_image):
     dominant_emotion = '-'
     percentage = '-'
     # Detect faces in the frame
-    face_cascade = cv2.CascadeClassifier(os.path.join(os.path.dirname(os.path.realpath(__file__)), "static", "haarcascade_frontalface_default.xml"))
+    face_cascade = cv2.CascadeClassifier(os.path.join(os.path.dirname(os.path.realpath(__file__)), "static", "haarcascade_frontalface_default.xml")
+)
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
     faces = face_cascade.detectMultiScale(gray, 1.3, 1)
 
@@ -78,8 +82,28 @@ def image(data_image):
     
     
     emit('response_back', emo)
+    
+    
+@app.route('/recommendation', methods=['GET', 'POST'])
+def recommendation():
+    
+    
+    # Get the data sent by the client (assuming it's JSON)
+    request_data = request.get_data()
+    mood = request_data.decode('utf-8').split(' \t ')[0]
+    percentage = request_data.decode('utf-8').split(' \t ')[1]
+    os.system('cls')
+    
+    print('\n\n\n\n\n\n\n', mood,'\n\n\n\n\n')
+    
+    track_ids = get_recomendations(seed_genres="rock,metal,heavy-metal,death-metal,punk-rock", limit=5, target_danceability=0.5, target_energy=0.8, target_loudness=-5.94, target_acousticness=0.06, target_valence=0.5, target_tempo=120.34)
+
+
+    # Process the data or do whatever you need to do with it
+    # For example, echo the received data back to the client
+    return ','.join(track_ids)
 
 
 
 if __name__ == '__main__':
-    socketio.run(app, host='localhost', debug=True)
+    socketio.run(app, port=5000, debug=True)

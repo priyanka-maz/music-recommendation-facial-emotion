@@ -52,18 +52,7 @@ def search_track(search_query, limit, offset = 0, token = get_token()):
     
 
 def get_recomendations(limit = 20, market = 'IN', seed_artists = None,
-  seed_genres = 'classical, country', seed_tracks = None, max_acousticness = None,
-  max_danceability = None, max_energy = None,
-  max_instrumentalness = None, max_key = None, max_liveness = None,
-  max_loudness = None, max_mode = None, max_popularity = None,
-  max_speechiness = None, max_tempo = None,
-  max_time_signature = None, max_valence = None,
-  min_acousticness = None, min_danceability = None,
-   min_energy = None,
-  min_instrumentalness = None, min_key = None, min_liveness = None,
-  min_loudness = None, min_mode = None, min_popularity = None,
-  min_speechiness = None, min_tempo = None,
-   min_valence = None,
+  seed_genres = 'classical, country', seed_tracks = None,
   target_acousticness = None, target_danceability = None,
   target_energy = None, target_loudness = None,
   target_instrumentalness = None, target_key = None,
@@ -94,11 +83,8 @@ def get_recomendations(limit = 20, market = 'IN', seed_artists = None,
     f'{f"&seed_genres={seed_genres}" if seed_genres else ""}'\
     f'{f"&seed_tracks={seed_tracks}" if seed_tracks else ""}'
 
-
-
-    #query ="?limit=10&market=ES&seed_artists=4YRxDV8wJFPHPTeXepOstw&seed_genres=indian%2C+k-pop"
-    
-    print(query)
+        
+    track_ids = []
     
     query_url = url + query
     result = get(query_url, headers = headers)
@@ -110,21 +96,7 @@ def get_recomendations(limit = 20, market = 'IN', seed_artists = None,
         print("\n", i+1, " . ", track_info[i]['name'], " | ", end=" ")
         print(track_info[i]['artists'][0]['name'], end=" ")
         print(track_info[i]['external_urls']['spotify'])
+        track_ids.append(track_info[i]['id'])
     
+    return track_ids
     
-    
-
-
-
-
-
-#search_track('sad music', 5, 1)
-#get_recomendations(seed_genres= None , seed_tracks='6VRhkROS2SZHGlp0pxndbJ', limit=20)
-
-#happy_tracks
-print("\n\n Happy tracks")
-get_recomendations(seed_genres="indian", limit=10, target_popularity=100, target_danceability=0.62, target_acousticness=0.12, target_energy=0.75 ,target_valence=0.57, target_loudness=-7.27 , target_tempo=124.2)
-    
-#sad_tracks
-print("\n\n Sad tracks")
-get_recomendations(seed_genres="indian", limit=10, target_popularity=100, target_danceability=0.49, target_acousticness=0.57, target_energy=0.38 ,target_valence=0.19, target_loudness=-10.56, target_tempo=115.5)

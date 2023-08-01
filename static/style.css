@@ -1,13 +1,32 @@
-@import url('https://fonts.cdnfonts.com/css/google-sans');
-@import url('https://fonts.cdnfonts.com/css/poppins');
+
+@import url('https://fonts.googleapis.com/css?family=PT+Sans');
+
+@import url('https://db.onlinewebfonts.com/c/0210e8c7a07c76189f47127049f61dd5?family=Pixeloid+Sans');
+
+@import url('https://db.onlinewebfonts.com/c/d5075ebf15c6a1d89e8ed3e20d1c4d7b?family=Product+Sans+Medium');
+
+@import url('https://db.onlinewebfonts.com/c/3fc5c57cfac020b6611b4b2a985671b0?family=Product+Sans+Black');
 
 
 
+@font-face {
+    font-family: 'Product Sans';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Open Sans'), local('OpenSans'), url(https://fonts.gstatic.com/s/productsans/v5/HYvgU2fE2nRJvZ5JFAumwegdm0LZdjqr5-oayXSOefg.woff2) format('woff2');
+  }
 
-    @font-face {
-        font-family: Comfortaa;
-        src: url('https://fonts.googleapis.com/css?family=Comfortaa');
-    }
+  @keyframes fadeIn {
+    0% { opacity: 0;}
+    100% { opacity: 1;}
+  }
+
+  @keyframes fadeUp {
+    0% { opacity: 0; 
+        transform: translate(0, 10vh);}
+    100% { opacity: 1;
+        transform: translate(0, 0); }
+  }
 
 
 
@@ -146,22 +165,30 @@ body{
     margin-top: 40px;
     background-color: #ffffff2a;
     border: 1px solid black;
+    aspect-ratio: 1.4;
 }
 
-.music>h2{
+.music h2{
     margin-top: 25px;
     opacity: 70%;
+}
+
+#music-type{
+    display: none;
 }
 
 .music-container{
     padding: 10px 20px 20px 20px;
 }
 
-.music-container>iframe{
+.music-container iframe{
     background-color: #dadada;
     height: 80px;
     margin-top: 5px;
     margin-bottom: 5px;
+    border-radius:15px;
+    width: 100%;
+    animation: fadeUp 1s;
 }
 
 

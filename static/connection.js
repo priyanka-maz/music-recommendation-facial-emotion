@@ -7,14 +7,13 @@ function RecordButton(){
     {
         record = true;
         recordButton.innerHTML = '<i class="fa-solid fa-arrow-rotate-right"></i>Start';
-        console.log(record);
         stopVideoCapture();
+        getRecommendation();
     }
     else
     {
         record = false;
         recordButton.innerHTML = '<i class="fa-regular fa-circle-dot fa-fade"></i>Snap';
-        console.log(record);
         startVideoCapture();
     }
 }
@@ -136,30 +135,72 @@ socket.on('response_back', function(image){
     switch(emotion)
     {
         case 'neutral':
-            root.style.setProperty('--gradient-color1', '#F2F2F2');
+            root.style.setProperty('--gradient-color1', '#F2F2F2');//
             break;
         case 'sad':
-            root.style.setProperty('--gradient-color1', '#bbb8b8');
+            root.style.setProperty('--gradient-color1', '#c0e5f8');//
             break;
         case 'angry':
-            root.style.setProperty('--gradient-color1', '#ffa795');
+            root.style.setProperty('--gradient-color1', '#ffa795');//
             break;
         case 'fear':
-            root.style.setProperty('--gradient-color1', '#c0e5f8');
+            root.style.setProperty('--gradient-color1', '#ffcdff');//
             break;
         case 'happy':
-            root.style.setProperty('--gradient-color1', '#ffe99a');
+            root.style.setProperty('--gradient-color1', '#ffe99a');//
             break;
         case 'disgust':
-            root.style.setProperty('--gradient-color1', '#A6EA79');
+            root.style.setProperty('--gradient-color1', '#e1ffc0');//
             break;
         case 'surprise':
-            root.style.setProperty('--gradient-color1', '#ffcdff');
+            root.style.setProperty('--gradient-color1', '#ffddbc');//
             break;
             
     }
 }
 
 });
+
+
+
+function getRecommendation() {
+
+    let mood_info = mood.innerHTML;
+    let music_type = document.getElementById('music-type');
+    
+    const xhr = new XMLHttpRequest();
+    xhr.open("POST", "/recommendation", true);
+             xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+             xhr.send(mood_info);
+            
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4) {
+            if (xhr.status === 200) {
+                const data = xhr.responseText;
+                populateRecommendation(data);
+                music_type.innerHTML = mood_info.split(' \t ')[0] + ' music';
+                music_type.style.display = 'block';
+            } else {
+                console.error('Error:', xhr.status);
+            }
+        }
+    };
+
+}
+
+var music_container = document.getElementById("music-container");
+
+function populateRecommendation(data)
+{
+    music_container.innerHTML = '';
+    let track_ids = data.split(',');
+    for(let i = 0; i < track_ids.length; i++) {
+        console.log(track_ids[i]);
+        music_container.innerHTML += '<iframe  src="https://open.spotify.com/embed/track/' + track_ids[i] + '?utm_source=generator" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>';    
+    }
+}
+
+
+
 
 
