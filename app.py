@@ -8,6 +8,7 @@ import cv2
 import numpy as np
 import imutils
 from fer import FER
+import os
 
 
 #FER
@@ -40,7 +41,7 @@ def image(data_image):
     dominant_emotion = '-'
     percentage = '-'
     # Detect faces in the frame
-    face_cascade = cv2.CascadeClassifier('d:/Teachable/haarcascade_frontalface_default.xml')
+    face_cascade = cv2.CascadeClassifier(os.path.join(os.path.dirname(os.path.realpath(__file__)), "static", "haarcascade_frontalface_default.xml"))
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
     faces = face_cascade.detectMultiScale(gray, 1.3, 1)
 
