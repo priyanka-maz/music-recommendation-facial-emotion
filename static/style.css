@@ -62,7 +62,7 @@ body{
     transition: 0.1s;
     padding: 2px;
     opacity: 100%;
-    background-color: var(--gradient-color1);
+    background-color: rgba(0, 0, 0, 0);
 
 }
 
@@ -70,6 +70,7 @@ body{
 #header.active{
     top:0px;
     border: 2px solid rgba(0, 0, 0, 0.278);
+    background-color: var(--gradient-color1);
 
 }
 
