@@ -98,18 +98,20 @@ def recommendation():
     
     track_ids = ""
     if (mood == 'Angry'):
-        track_ids = get_recomendations(seed_genres="rock,metal,heavy-metal,death-metal,punk-rock", limit=15, target_popularity=90, target_danceability=0.73, target_energy=0.9, target_loudness=-5.39, target_acousticness=0.06, target_valence=0.47, target_tempo=150.34)
+        track_ids = get_recomendations(seed_genres="rock,metal,heavy-metal,death-metal,punk-rock", limit=5, target_popularity=90, target_danceability=0.73, target_energy=0.9, target_loudness=-5.39, target_acousticness=0.06, target_valence=0.47, target_tempo=150.34)
     elif (mood == 'Happy'):
-        track_ids = get_recomendations(seed_genres="happy,dance,funk", limit=15, target_popularity=90, target_danceability=0.75, target_energy=0.76, target_loudness=-4.24, target_acousticness=0.32, target_valence=0.49, target_tempo=116.4)
+        track_ids = get_recomendations(seed_genres="happy,dance,funk", limit=5, target_popularity=90, target_danceability=0.75, target_energy=0.76, target_loudness=-4.24, target_acousticness=0.32, target_valence=0.49, target_tempo=116.4)
     elif (mood == 'Sad'):
-        track_ids = get_recomendations(seed_genres="emo,blues", limit=15, target_popularity=90, target_danceability=0.48, target_energy=0.32, target_loudness=-10.49, target_acousticness=0.76, target_valence=0.11, target_tempo=115)
-    # elif (mood == 'Fear'):
-    # elif (mood == 'Disgust'):
-    # elif (mood == 'Surprise'):
-    # else:
-
-    # track_ids = get_recomendations(seed_genres="rock,metal,heavy-metal,death-metal,punk-rock", limit=5, target_danceability=0.5, target_energy=0.8, target_loudness=-5.94, target_acousticness=0.06, target_valence=0.5, target_tempo=120.34)
-
+        track_ids = get_recomendations(seed_genres="emo,blues", limit=5, target_popularity=90, target_danceability=0.48, target_energy=0.32, target_loudness=-10.49, target_acousticness=0.76, target_valence=0.11, target_tempo=115)
+    elif (mood == 'Fear'):
+        track_ids = get_recomendations(seed_artists="5TvFfw1MgSntdU9A7yncyA,7qrYuWFTRINeUML3ptoSEk", seed_genres='', limit=5, target_popularity=85, target_danceability=0.61, target_energy=0.74, target_loudness=-5.101, target_acousticness=0.113, target_valence=0.49, target_tempo=121.1)
+    elif (mood == 'Disgust'):
+        track_ids = get_recomendations(seed_artists="5KKpBU5eC2tJDzf0wmlRp2,2W8yFh0Ga6Yf3jiayVxwkE,26VFTg2z8YR0cCuwLzESi2", seed_genres='', limit=5, target_danceability=0.64, target_energy=0.58, target_loudness=-6.538, target_acousticness=0.05, target_valence=0.48, target_tempo=90, target_instrumentalness=0.0014)
+        #get_recomendations(seed_artists="5KKpBU5eC2tJDzf0wmlRp2,2W8yFh0Ga6Yf3jiayVxwkE,26VFTg2z8YR0cCuwLzESi2", seed_genres='', limit=15, target_danceability=0.538, target_energy=0.74, target_loudness=-5.35, target_acousticness=0.13, target_valence=0.25, target_tempo=97, target_instrumentalness=0.00467)#get_recomendations(seed_artists="5KKpBU5eC2tJDzf0wmlRp2,2W8yFh0Ga6Yf3jiayVxwkE,26VFTg2z8YR0cCuwLzESi2", seed_genres='', limit=15, target_danceability=0.64, target_energy=0.66, target_loudness=-5.538, target_acousticness=0.124, target_valence=0.51, target_tempo=124.3, target_instrumentalness=0.0014)
+    elif (mood == 'Surprise'):
+        track_ids = get_recomendations(seed_genres="pop", seed_artists="06HL4z0CvFAxyc27GXpf02", limit=5, target_popularity=100)
+    else:
+        track_ids = get_recomendations(seed_genres="classical,sleep,study", seed_artists="0Nrx6TQe5XBFEuRBhZTGpC", limit=5, target_danceability=0.56, target_energy=0.54, target_loudness=-7.85, target_acousticness=0.43, target_valence=0.40, target_tempo=123.1, target_instrumentalness=0.03)
 
     # Process the data or do whatever you need to do with it
     # For example, echo the received data back to the client
