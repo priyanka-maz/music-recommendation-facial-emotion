@@ -57,19 +57,20 @@ body{
     position: fixed;
     left:0px;
     right:0px;
-    top:5px;
+    top:0px;
     z-index:9000;
     transition: 0.1s;
     padding: 2px;
-    opacity: 90%;
-    
+    opacity: 100%;
+    background-color: var(--gradient-color1);
+
 }
 
 
 #header.active{
     top:0px;
-    box-shadow: 0 0 30px rgba(0, 0, 0, 0.2); 
-    background-color: var(--gradient-color1);
+    border: 2px solid rgba(0, 0, 0, 0.278);
+
 }
 
 .header-spacing{
@@ -82,6 +83,7 @@ body{
     scale: 0.9;
     box-shadow: -23px 23px 0px rgb(255, 255, 255), -23px 23px 0px 1px rgb(0, 0, 0);
     margin-bottom: 10px;
+    border: 1px solid black;
 
 }
 
@@ -106,7 +108,7 @@ body{
 }
 
 .espace{
-    height:500px;
+    height:200px;
 }
 
 .nav-link{
@@ -131,7 +133,7 @@ body{
     box-shadow: 5px 5px 0px rgb(255, 0, 0);
     transition: 0.3s;
     font-size: 1.3rem;
-    
+    font-family:"Product Sans Medium";
 }
 
 .rec:hover{
@@ -193,18 +195,36 @@ body{
 
 
 #about-container{
-    background-color: white;
-    padding: 30px;
-    text-align: center;
-    width: 97%;
-    margin: 0px auto;
+    width: 95%;
+    background-color: rgba(255, 255, 255, 0.321);
     border-radius: 30px;
-    border: 1px solid black;
+    padding: 40px 40px;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 30px;  
+    border:1px solid black;
+    box-shadow: 8px 8px 0px 0px rgba(0, 0, 0, 0.403);
+    transition: 0.3s;
+
 }
 
-#about-container>h1{
-    opacity: 70%;
-    margin-bottom: 30px;
+#about-container:hover{
+    box-shadow: 5px 5px 0px 0px rgba(0, 0, 0, 0.403);
+    transition: 0.3s;
+    background-color: rgb(247, 247, 247);
+
+}
+
+#about-container h1{
+    font-family: "Product Sans Medium";
+    margin-bottom: 20px;
+    opacity: 85%;
+    font-size: 50px;
+}
+
+#about-container p{
+    font-size: 20px;
+    color: rgba(0, 0, 0, 0.666);
 }
 
 

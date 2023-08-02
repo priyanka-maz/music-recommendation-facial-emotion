@@ -168,23 +168,26 @@ function getRecommendation() {
     let mood_info = mood.innerHTML;
     let music_type = document.getElementById('music-type');
     
-    const xhr = new XMLHttpRequest();
-    xhr.open("POST", "/recommendation", true);
-             xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-             xhr.send(mood_info);
-            
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState === 4) {
-            if (xhr.status === 200) {
-                const data = xhr.responseText;
-                populateRecommendation(data);
-                music_type.innerHTML = mood_info.split(' \t ')[0] + ' music';
-                music_type.style.display = 'block';
-            } else {
-                console.error('Error:', xhr.status);
+    if(mood_info.split(' \t ')[0] != '-')
+    {
+        const xhr = new XMLHttpRequest();
+        xhr.open("POST", "/recommendation", true);
+                xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+                xhr.send(mood_info);
+                
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4) {
+                if (xhr.status === 200) {
+                    const data = xhr.responseText;
+                    populateRecommendation(data);
+                    music_type.innerHTML = mood_info.split(' \t ')[0] + ' music';
+                    music_type.style.display = 'block';
+                } else {
+                    console.error('Error:', xhr.status);
+                }
             }
-        }
-    };
+        };
+    }
 
 }
 

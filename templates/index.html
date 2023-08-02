@@ -57,10 +57,10 @@
                     </a>
                     <ul class="nav justify-content-end">
                         <li class="nav-item">
-                          <a class="nav-link" aria-current="page" href="#">Github</a>
+                          <a class="nav-link" aria-current="page" href="https://github.com/priyanka-maz/music-recommendation-facial-emotion" target="_blank">Github</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" aria-current="page" onclick="About()">About us</a>
+                            <a class="nav-link" aria-current="page" onclick="About()">About</a>
                           </li>
                     </ul>
                     </div>
@@ -107,8 +107,21 @@
 
                 <div class="espace"></div>
                 <div id="about-container">
-                    <h1>About</h1>
-                    This is the about us section 
+                    <h1>About this project</h1>
+                    <div class="row">
+                        <div class="col-lg my-auto">
+                            <p>
+                                Welcome to Inside-Out, here we give you music recommendations based on your emotion from your facial expression.
+                                We use FER model to classify your facial expressions into 7 categories, Happy, Sad, Angry, Disgust, Fear, Surprise and Neutral. 
+                                Then the SpotifyAPI is used to recommend music based on the detected emotion.
+                                <br>
+                                The name of this project comes from the Pixar movie 'Inside-Out' which had separate characters for different emotions, Happy, Sad, Angry, Disgust and Fear.
+                            </p>
+                        </div>
+                        <div class="col-lg-4 my-auto">
+                            <img src="{{url_for('static', filename='inside_out.png')}}" class="img-fluid">
+                        </div>
+                    </div>
                 </div>
                 <div class="espace"></div>
 
@@ -129,7 +142,7 @@
         }
 
         function About(){
-            var about = document.getElementById('about');
+            var about = document.getElementsByClassName('espace')[0];
 
             about.scrollIntoView();
         }
