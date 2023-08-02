@@ -96,7 +96,19 @@ def recommendation():
     
     print('\n\n\n\n\n\n\n', mood,'\n\n\n\n\n')
     
-    track_ids = get_recomendations(seed_genres="rock,metal,heavy-metal,death-metal,punk-rock", limit=5, target_danceability=0.5, target_energy=0.8, target_loudness=-5.94, target_acousticness=0.06, target_valence=0.5, target_tempo=120.34)
+    track_ids = ""
+    if (mood == 'Angry'):
+        track_ids = get_recomendations(seed_genres="rock,metal,heavy-metal,death-metal,punk-rock", limit=15, target_popularity=90, target_danceability=0.73, target_energy=0.9, target_loudness=-5.39, target_acousticness=0.06, target_valence=0.47, target_tempo=150.34)
+    elif (mood == 'Happy'):
+        track_ids = get_recomendations(seed_genres="happy,dance,funk", limit=15, target_popularity=90, target_danceability=0.75, target_energy=0.76, target_loudness=-4.24, target_acousticness=0.32, target_valence=0.49, target_tempo=116.4)
+    elif (mood == 'Sad'):
+        track_ids = get_recomendations(seed_genres="emo,blues", limit=15, target_popularity=90, target_danceability=0.48, target_energy=0.32, target_loudness=-10.49, target_acousticness=0.76, target_valence=0.11, target_tempo=115)
+    # elif (mood == 'Fear'):
+    # elif (mood == 'Disgust'):
+    # elif (mood == 'Surprise'):
+    # else:
+
+    # track_ids = get_recomendations(seed_genres="rock,metal,heavy-metal,death-metal,punk-rock", limit=5, target_danceability=0.5, target_energy=0.8, target_loudness=-5.94, target_acousticness=0.06, target_valence=0.5, target_tempo=120.34)
 
 
     # Process the data or do whatever you need to do with it
