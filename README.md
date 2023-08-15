@@ -24,7 +24,7 @@ Inside-Out detects 7 emotions -
 
 <h2 align="center">Video Demo</h2>
 
-[![InsideOut Video Presentation](https://i.ytimg.com/vi/TuBorWjBrAw/maxresdefault.jpg)](https://youtu.be/TuBorWjBrAw "InsideOut Video Presentation")
+[![InsideOut Video Presentation](static/emotion_thumbnail.png)](https://youtu.be/TuBorWjBrAw "InsideOut Video Presentation")
 
 ## Screenshots
 
@@ -45,8 +45,10 @@ Inside-Out detects 7 emotions -
 ![About](screenshots/About.png)
 
 
+
+
 #
-## Setup & Use
+## Setup
 
 - Clone the repository
 ```sh
@@ -68,6 +70,17 @@ pip install -r requirements.txt
 - Run ```app.py```
 
 #
+## Use
+
+- Open the webpage.
+- Allow camera access permissions.
+- Make sure you are in a well lit environment.
+- The background color of the page changes depending on the mood.
+- Snap your funny expression.
+- Wait for the recommended music to pop up.
+
+*Make sure you are signed in to Spotify to listen to the entire track.*
+#
 ## Spotify API
 
 1. Once the emotion is detected, the Spotify API [**```/recommendations```**](https://developer.spotify.com/documentation/web-api/reference/get-recommendations) endpoint is used to obtain the recommended tracks.
@@ -86,6 +99,43 @@ pip install -r requirements.txt
 ##
 Learn more about Spotify API endpoints [```Spotify Web API```](https://developer.spotify.com/documentation/web-api)
 
+#
 
+## File Structure
+
+```
+.
+├── LICENSE
+├── README.md
+├── __pycache__
+│   └── spotifyaccess.cpython-39.pyc
+├── app.py
+├── genre names.txt
+├── requirements.txt
+├── screenshots
+│   ├── About.png
+│   ├── Emotion Angry.png
+│   ├── Emotion Disgust.png
+│   ├── Emotion Fear.png
+│   ├── Emotion Happy.png
+│   ├── Emotion Neutral.png
+│   ├── Emotion Sad.png
+│   ├── Emotion Surprise.png
+│   └── FER dataset viz.png
+├── spotifyaccess.py
+├── spotifyplaylist.ipynb
+├── static
+│   ├── connection.js
+│   ├── emotion_thumbnail.png
+│   ├── fav.png
+│   ├── haarcascade_frontalface_default.xml
+│   ├── inside_out.png
+│   ├── moodmusic.png
+│   ├── moodmusic_white.png
+│   ├── opencv.js
+│   └── style.css
+└── templates
+    └── index.html
+```
 
 
