@@ -79,7 +79,7 @@ pip install -r requirements.txt
 - Snap your funny expression.
 - Wait for the recommended music to pop up.
 
-*Make sure you are signed in to Spotify to listen to the entire track.*
+*Make sure you are signed in to Spotify to get the entire track.*
 #
 ## Spotify API
 
