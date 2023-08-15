@@ -4,7 +4,8 @@
 <br />
 <div align="center">
     <img src="static\inside_out.png" alt="Logo" width="200">
-    <h3 align="center">Inside-Out</h3>
+        <img src="static\moodmusic_white.png" alt="Logo" width="20">
+    <h1 align="center">Inside-Out</h1>
 
 </div>
 
@@ -20,9 +21,11 @@ Inside-Out detects 7 emotions -
 - Angry
 - Surprise
 </b>
-
+#
+[![InsideOut Video Presentation]          // Title
+(https://i.ytimg.com/vi/TuBorWjBrAw/maxresdefault.jpg)] // Thumbnail
+(https://youtu.be/TuBorWjBrAw "InsideOut Video Presentation")    // Video Link
 ## Screenshots
-
 
 ![Neutral](screenshots/Emotion&#32;Neutral.png)
 
@@ -41,7 +44,7 @@ Inside-Out detects 7 emotions -
 ![About](screenshots/About.png)
 
 
-
+#
 ## Setup & Use
 
 - Clone the repository
@@ -57,13 +60,13 @@ pip install -r requirements.txt
 ```
 
 
-- Go to https://developer.spotify.com/dashboard > Create app(fill the details and submit) > Settings
+- Go to https://developer.spotify.com/dashboard > Create app (fill the details and submit) > Settings
 
 - Copy ClientID and ClientSecret, paste it in **.env**
 
 - Run ```app.py```
 
-
+#
 ## Spotify API
 
 1. Once the emotion is detected, the Spotify API [**```/recommendations```**](https://developer.spotify.com/documentation/web-api/reference/get-recommendations) endpoint is used to obtain the recommended tracks.
@@ -75,10 +78,10 @@ pip install -r requirements.txt
 ###
 4. The parameter values for each emotion was determined by feeding tracks from preexisting playlists (of that particular emotion type) into another Spotify API endpoint [**```/audio-features```**](https://developer.spotify.com/documentation/web-api/reference/get-audio-features)
 ###
-5. The parameter values evaluation is performed in [**```spotifyplaylists.ipynb```**](spotifyplaylists.ipynb)
+5. The parameter values evaluation is performed in [**```spotifyplaylists.ipynb```**](spotifyplaylist.ipynb)
 
 > [!NOTE]
-> Make sure you change the client_id and client_secret before running it.
+> Make sure you change the *client_id* and *client_secret* before running the notebook.
 ##
 Learn more about Spotify API endpoints [```Spotify Web API```](https://developer.spotify.com/documentation/web-api)
 
