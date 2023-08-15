@@ -38,6 +38,8 @@ Inside-Out detects 7 emotions -
 
 ![Surprise](screenshots/Emotion&#32;Surprise.png)
 
+![About](screenshots/About.png)
+
 
 
 ## Setup & Use
@@ -49,18 +51,37 @@ git clone https://github.com/priyanka-maz/music-recommendation-facial-emotion.gi
 
 - Install requirements
 
-
-> cd music-recommendation-facial-emotion
-> pip install -r requirements.txt
+```sh
+cd music-recommendation-facial-emotion
+pip install -r requirements.txt
+```
 
 
 - Go to https://developer.spotify.com/dashboard > Create app(fill the details and submit) > Settings
 
 - Copy ClientID and ClientSecret, paste it in **.env**
 
-- Run app.py
+- Run ```app.py```
 
 
 ## Spotify API
 
-Once the emotion is detected, the Spotify API <b>```/recommendations```</b> endpoint is used to obtain the tracks.
+1. Once the emotion is detected, the Spotify API [**```/recommendations```**](https://developer.spotify.com/documentation/web-api/reference/get-recommendations) endpoint is used to obtain the recommended tracks.
+###
+
+2. Some of the parameters the endpoint takes are *seed_genres, seed_artists, danceability, energy, loudness, acousticness, valence, tempo* etc.
+###
+3. Specific emotions corelate to specific parameter values. 
+###
+4. The parameter values for each emotion was determined by feeding tracks from preexisting playlists (of that particular emotion type) into another Spotify API endpoint [**```/audio-features```**](https://developer.spotify.com/documentation/web-api/reference/get-audio-features)
+###
+5. The parameter values evaluation is performed in [**```spotifyplaylists.ipynb```**](spotifyplaylists.ipynb)
+
+> [!NOTE]
+> Make sure you change the client_id and client_secret before running it.
+##
+Learn more about Spotify API endpoints [```Spotify Web API```](https://developer.spotify.com/documentation/web-api)
+
+
+
+
