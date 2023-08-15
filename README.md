@@ -26,22 +26,22 @@ Inside-Out detects 7 emotions -
 
 ![Neutral](screenshots/Emotion&#32;Neutral.png)
 #####<center>Neutral</center>
-###
+
 ![Happy](screenshots/Emotion&#32;Happy.png)
 #####<center>Happy</center>
-###
+
 ![Sad](screenshots/Emotion&#32;Sad.png)
 #####<center>Sad</center>
-###
+
 ![Disgust](screenshots/Emotion&#32;Disgust.png)
 #####<center>Disgust</center>
-###
+
 ![Angry](screenshots/Emotion&#32;Angry.png)
 #####<center>Angry</center>
-###
+<br>
 ![Fear](screenshots/Emotion&#32;Fear.png)
 #####<center>Fear</center>
-###
+<br>
 ![Surprise](screenshots/Emotion&#32;Surprise.png)
 #####<center>Surprise</center>
 
