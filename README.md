@@ -21,10 +21,11 @@ Inside-Out detects 7 emotions -
 - Angry
 - Surprise
 </b>
-#
-[![InsideOut Video Presentation]          // Title
-(https://i.ytimg.com/vi/TuBorWjBrAw/maxresdefault.jpg)] // Thumbnail
-(https://youtu.be/TuBorWjBrAw "InsideOut Video Presentation")    // Video Link
+
+<h2 align="center">Video Demo</h2>
+
+[![InsideOut Video Presentation](https://i.ytimg.com/vi/TuBorWjBrAw/maxresdefault.jpg)](https://youtu.be/TuBorWjBrAw "InsideOut Video Presentation")
+
 ## Screenshots
 
 ![Neutral](screenshots/Emotion&#32;Neutral.png)
